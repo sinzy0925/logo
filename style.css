@@ -31,15 +31,32 @@ main {
     padding: 40px 20px;
 }
 
+/* ▼▼▼ この部分が変更点です ▼▼▼ */
 /* 画像ギャラリーのコンテナ */
 .gallery-container {
     display: grid;
-    /* 画面幅に応じて列数を自動調整 */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* デフォルト（スマホ表示）では1列 */
+    grid-template-columns: 1fr;
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
+
+/* 画面幅が768px以上の場合（タブレットなど）は2列 */
+@media (min-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 画面幅が992px以上の場合（デスクトップなど）は4列 */
+@media (min-width: 992px) {
+    .gallery-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+/* ▲▲▲ 変更点はここまで ▲▲▲ */
+
 
 /* 画像カード */
 .card {
@@ -49,6 +66,8 @@ main {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* アスペクト比を16:9に固定 */
+    aspect-ratio: 16 / 9;
 }
 
 .card:hover {
