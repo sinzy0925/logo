@@ -50,7 +50,7 @@ main {
 }
 
 /* 画面幅が992px以上の場合（デスクトップなど）は4列 992*/
-@media (min-width: 900px) {
+@media (min-width: 1100px) {
     .gallery-container {
         grid-template-columns: repeat(4, 1fr);
     }
