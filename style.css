@@ -49,8 +49,8 @@ main {
     }
 }
 
-/* 画面幅が992px以上の場合（デスクトップなど）は4列 */
-@media (min-width: 992px) {
+/* 画面幅が992px以上の場合（デスクトップなど）は4列 992*/
+@media (min-width: 900px) {
     .gallery-container {
         grid-template-columns: repeat(4, 1fr);
     }
